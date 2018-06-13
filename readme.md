@@ -1,4 +1,4 @@
-#Evaluation 4
+#Évaluation 4
 
 ##Pour récupérer le repo : 
 ```
@@ -12,4 +12,4 @@ $username = 'votreusername';
 $password = 'votremdp';
 ```
 
-##Créer une database du nom de 'database_eval4.sql' et Importer le fichier database_eval4.sql
+##Créer une database du nom de 'database_eval4' et Importer le fichier database_eval4.sql
