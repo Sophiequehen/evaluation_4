@@ -26,7 +26,7 @@
 					<th>Client</th>
 					<th>Chambre</th>
 					<th>Dates</th>
-					<th>Statut</th>
+					<th class="hide">Statut</th>
 					<th>Actions</th>
 				</tr>
 			</thead>
@@ -38,9 +38,9 @@
 					echo "<tr>
 					<td>".$row['id']."</td>
 					<td>".$row['prenom']." ".$row['nom']."</td>
-					<td>".$row['numero']."</td>
+					<td>N°".$row['numero']."</td>
 					<td>Du ".$row['dateEntree']." au ".$row['dateSortie']."</td>
-					<td>".$row['statut']."</td>
+					<td class='hide'>".$row['statut']."</td>
 					<td>
 					<a href='modifier.php?id=".$row['id']."'>Éditer</a>
 					<a href='supprimer.php?id=".$row['id']."'>Supprimer</a>
