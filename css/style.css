@@ -19,6 +19,7 @@ header h1{
 
 .header_logo{
 	width: 130px;
+	height: 130px;
 }
 
 .container{
@@ -38,6 +39,8 @@ header h1{
 	margin-bottom: 30px;
 }
 
+/*::::::::::::::::::::::::::::::PAGE SUPPRESSION:::::::::::::::::::::::::::::::::::*/
+
 .container_a_delete{
 	display: flex;
 	justify-content: center;
@@ -48,13 +51,26 @@ header h1{
 }
 
 .container form.delete_nav{
-	background: blue;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	margin-top: 50px;
 	width: 500px;
 }
+
+.container_button.button_delete{
+	margin: 0;
+}
+
+.container h2.delete{
+	margin: 0;
+}
+
+.container p.delete{
+	font-size: 20px;
+}
+
+/*::::::::::::::::::::::::::::::PAGES FORMULAIRE:::::::::::::::::::::::::::::::::::*/
 
 table{
 	width: 85%;
@@ -75,16 +91,11 @@ td{
 }
 
 form{
-	text-align: center;
+	text-align: left;
 }
 
-.container h2.delete{
-	margin: 0;
-}
 
-.container p.delete{
-	font-size: 20px;
-}
+/*::::::::::::::::::::::::::::::MEDIA QUERIES:::::::::::::::::::::::::::::::::::*/
 
 @media screen and (max-width: 480px){
 	body{
@@ -95,7 +106,7 @@ form{
 	}
 
 	header h1{
-		padding: 0;
+		padding: 0 15px 0 0;
 		font-size: 18px;
 	}
 
@@ -104,12 +115,48 @@ form{
 		height: 80px;
 	}
 
+	.container{
+		text-align: center;
+	}
+	/*....................PAGES FORMULAIRE...................*/
+	
 	table{
 		width: 100%;
 	}
 
-	td, th{
+	th{
+		font-size: 11px;
+	}
+
+	td{
 		font-size: 12px;
+	}
+
+	/*....................PAGE SUPPRESSION...................*/
+
+	.container form.delete_nav{
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		margin-top: 50px;
+		width: 300px;
+	}
+
+	.container_button.button_delete, .container_a_delete{
+		width: 120px;
+	}
+	.container_button.button_delete{
+		margin: 0;
+	}
+
+	.container h2.delete{
+		margin: 0 10px;
+		font-size: 18px;
+	}
+
+	.container p.delete{
+		margin: 20px 10px 50px 10px;
+		font-size: 19px;
 	}
 }
 

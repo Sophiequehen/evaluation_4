@@ -34,14 +34,6 @@ class Reservation extends Database{
 		return $reqedit;
 	}
 
-	public function editclient($id, $idchambre){
-
-		$reqedit = parent::$pdo->prepare("UPDATE reservations SET chambreId=:idchambre WHERE id=:id");
-		$reqedit->execute([':idchambre' => $idchambre, ':id' => $id]);
-		header('Location: index.php');
-	}
-
-
 	public function delete($id){
 
 		$reqdelete = parent::$pdo->prepare("DELETE FROM reservations WHERE id=:id");

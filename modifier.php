@@ -3,6 +3,8 @@
 @include 'reservationsClass.php';
 @include 'clientsClass.php';
 @include 'chambresClass.php';
+Database::connect();
+$id = $_GET['id'];
 
 ?>
 
@@ -21,13 +23,11 @@
 	</header>
 
 	<section class="container">
-		<form method="POST" action="modifier.php">
+		<form method="POST" action="update.php?id=<?php echo $id;?>">
 
 			<p>Client :
 				<select name="select_client">
 					<?php
-					Database::connect();
-					$id = $_GET['id'];
 					$reqread = Database::$pdo->prepare("SELECT reservations.id, reservations.clientId AS clientId, clients.prenom AS 'prenom', clients.nom AS 'nom', chambreId, chambres.numero AS 'numero', chambres.nom AS nomChambre, CAST(dateEntree as date) as dateEntree, CAST(dateSortie as date) as dateSortie, reservations.statut AS statut FROM `reservations` INNER JOIN clients ON clients.id = clientId INNER JOIN chambres ON chambres.id = chambreId WHERE reservations.id=:id");
 					$reqread->execute([':id' => $id]);
 					$result = $reqread->fetchAll();
@@ -70,25 +70,6 @@
 			</p>
 			<button type="submit" class="container_button">Enregistrer</button>
 		</form>
-		<?php
-		if (!empty($_POST)){
-			
-			$idclient = $_POST['select_client'];
-			$idchambre = $_POST['select_chambre'];
-			$statut = $_POST['select_statut'];	
-			$dateEntree = $_POST['date_entree'];
-			$dateSortie = $_POST['date_sortie'];
-			$statut = $_POST['select_statut'];
-			echo $idclient."<br>";
-			echo $idchambre."<br>";
-			echo $statut."<br>";
-			echo $dateEntree."<br>";
-			echo $dateSortie."<br>";
-			$newReserv = new Reservation;	
-			$newReserv->edit($id, $idclient, $idchambre, $dateEntree, $dateSortie, $statut);
-			// header('Location: index.php');
-		}
-		?>
 		<a href="index.php">Retour</a>
 	</section>
 </body>
